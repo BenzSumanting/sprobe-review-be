@@ -22,7 +22,7 @@ return new class extends Migration
 
         Schema::create('reviews', function (Blueprint $table) {
             $table->ulid()->primary();
-            $table->foreignUlid('employee_id')->references('id')->on('employee')->nullable(false);
+            $table->foreignUlid('employee_id')->references('id')->on('employees')->nullable(false);
             $table->foreignUlid('reviewer_id')->references('id')->on('users')->nullable(false);
             $table->date('review_date');
             $table->text('overall_comment');
