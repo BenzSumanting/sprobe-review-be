@@ -13,7 +13,7 @@ return new class extends Migration
     {
 
         Schema::create('review_templates', function (Blueprint $table) {
-            $table->ulid()->primary();
+            $table->ulid('id')->primary();
             $table->string('template_name');
             $table->string('description');
             $table->softDeletes();
@@ -21,7 +21,7 @@ return new class extends Migration
         });
 
         Schema::create('reviews', function (Blueprint $table) {
-            $table->ulid()->primary();
+            $table->ulid('id')->primary();
             $table->foreignUlid('employee_id')->references('id')->on('employees')->nullable(false);
             $table->foreignUlid('reviewer_id')->references('id')->on('users')->nullable(false);
             $table->date('review_date');

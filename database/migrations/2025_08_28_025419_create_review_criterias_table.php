@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('review_criterias', function (Blueprint $table) {
-            $table->ulid()->primary();
+            $table->ulid('id')->primary();
             $table->foreignUlid('review_id')->references('id')->on('reviews')->nullable(false);
             $table->foreignUlid('review_template_id')->references('id')->on('review_templates')->nullable(false);
             $table->string('criteria_name');
