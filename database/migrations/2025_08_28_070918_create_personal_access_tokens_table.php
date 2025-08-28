@@ -21,6 +21,11 @@ return new class extends Migration
             $table->timestamp('expires_at')->nullable()->index();
             $table->timestamps();
         });
+
+        Schema::table('personal_access_tokens', function (Blueprint $table) {
+            $table->ulid('tokenable_id')->change();
+            $table->ulid('id')->change();
+        });
     }
 
     /**
